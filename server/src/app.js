@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 app.use(morgan("combined"));
 app.use(cors());
 
-app.get("/status", (req, res) => {
-  res.json({ message: "hello world" });
+app.post("/register", (req, res) => {
+  res.send({ message: `Hello ${req.body.email}, welcome and have fun!` });
 });
 
 app.listen(process.env.PORT || 3000);
