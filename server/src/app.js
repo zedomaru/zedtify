@@ -12,4 +12,6 @@ app.post("/register", (req, res) => {
   res.send({ message: `Hello ${req.body.email}, welcome and have fun!` });
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Connected!");
+});
