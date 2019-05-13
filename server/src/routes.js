@@ -1,5 +1,10 @@
+const AuthenticationController = require("./controller/AuthenticationController");
+const AuthenticationControllerValidation = require("./validation/AuthenticationControllerValidation");
+
 module.exports = app => {
-  app.post("/register", (req, res) => {
-    res.send({ message: `Hello ${req.body.email}, welcome and have fun!` });
-  });
+  app.post(
+    "/register",
+    AuthenticationControllerValidation.register,
+    AuthenticationController.register
+  );
 };
