@@ -12,7 +12,7 @@
           <br>
           <div v-html="error" class="error"></div>
           <br>
-          <v-btn @click="register" class="register_button green darken-3" dark>Login</v-btn>
+          <v-btn @click="login" class="register_button green darken-3" dark>Login</v-btn>
           <!-- <p>{{email}}</p>
           <p>{{password}}</p>-->
         </div>
@@ -39,7 +39,7 @@ export default {
           password: this.password
         });
       } catch (error) {
-        this.error = error.response.data.error;
+        this.error = "MASUK ERROR LOGIN INI" || error.response.data.error;
         // console.log(error);
       }
     }
