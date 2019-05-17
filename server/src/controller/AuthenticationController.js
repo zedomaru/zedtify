@@ -1,6 +1,7 @@
 const { User } = require("../models");
 const jwt = require("jsonwebtoken");
 const config = require("../config/config");
+const bcrypt = require("bcrypt");
 
 function jwtSignUser(user) {
   const ONE_WEEK = 60 * 60 * 24 * 7;
@@ -33,7 +34,9 @@ module.exports = {
           error: "The login information was incorrect"
         });
       }
-      const isPasswordValid = password === user.password;
+      const isPasswordValid = bcrypt
+        .compare(user.password, password)
+        .then(console.log(user.password, password));
       if (!isPasswordValid) {
         return res.status(403).send({
           error: "Login information was incorrect"
